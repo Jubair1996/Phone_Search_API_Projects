@@ -10,6 +10,18 @@ const loadPhones = async (searchPhones) => {
 const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
   phoneContainer.textContent = "";
+  const showAllPhones = document.getElementById("show-all");
+
+  // Phones Show all
+  if (phones.length > 12) {
+    showAllPhones.classList.remove("hidden");
+  } else {
+    showAllPhones.classList.add("hidden");
+  }
+  
+  // Phones Slice()
+  phones = phones.slice(0, 12);
+
   phones.forEach((phone) => {
     const phoneCards = document.createElement("div");
     phoneCards.className = `card  bg-white shadow-xl pt-6`;
